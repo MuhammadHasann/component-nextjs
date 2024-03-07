@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tw-padding-block: 1.5rem;
+  --tw-padding-inline: 2.5rem;
+  --tw-width-button: calc(var(--tw-width-text_button) + (var(--tw-padding-inline) * 2));
+  --tw-height-button: calc(var(--tw-height-text_button) + (var(--tw-padding-block) * 2));
+  --tw-bg-gradient: rgba(50, 50, 50, 1) 0%, rgba(12, 12, 12, 1) 100%;
+}
+
+@layer utilities {
+  .size-button {
+    @apply min-w-[--tw-width-button] min-h-[--tw-height-button];
+  }
+
+  .button {
+    @apply bg-primay rounded-full;
+  }
+
+  .button::before {
+    content: "";
+
+    border-radius: 50%;
+    transition: bottom 0.5s ease-in-out, border-radius 0.5s ease-in-out 0.1s, transform 0.5s ease-in-out;
+
+    @apply pointer-events-none absolute bottom-full absolute-x-center w-[110%] aspect-square bg-second opacity-40;
+  }
+
+  .button:hover::before {
+    bottom: 50%;
+    transform: translate(-50%, 50%);
+
+    transition: bottom 0s ease-in-out, border-radius 0s ease-in-out, transform 0s ease-in-out;
+  }
+
+  .absolute-x-center {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+
+  .absolute-y-center {
+    @apply absolute top-1/2 -translate-y-1/2;
+  }
+
+  .absolute-center {
+    @apply absolute absolute-y-center absolute-x-center;
+  }
+}
