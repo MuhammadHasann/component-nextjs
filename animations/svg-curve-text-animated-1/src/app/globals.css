@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --tw-bg-gradient: rgba(50, 50, 50, 1) 0%, rgba(12, 12, 12, 1) 100%;
+}
+
+@layer utilities {
+  .absolute-x-center {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+
+  .absolute-y-center {
+    @apply absolute top-1/2 -translate-y-1/2;
+  }
+
+  .absolute-center {
+    @apply absolute absolute-y-center absolute-x-center;
+  }
+}
